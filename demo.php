@@ -1,7 +1,4 @@
 <?php
-// Load the composer autoload - use includes for that 
-// since the root vendor directory is currently used 
-// for front-end things like jQuery. 
 require(__DIR__ . '/vendor/autoload.php');
 
 use \CarbonForms\EmailNotification;
@@ -36,7 +33,7 @@ function send_mail_notification($input_data) {
 		$notification = new EmailNotification(Config::$values);
 
 		// You can add attachments to the message:
-		$notification->attach('demo.jpg', 'demo.jpg');
+		// $notification->attach('demo.jpg', 'demo.jpg');
 
 		$notification->send([
 			'name'    => $input_data['name'],
