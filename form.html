@@ -14,9 +14,14 @@
 
 				data: {
 					state: 'pending-sumbmission',
-					form: $('.contact-form form')[0],
 					errors: [],
 					message: "",
+				},
+
+				computed: {
+					form: function () {
+						return $('form', this.$el)[0];
+					}
 				},
 
 				methods: {
@@ -34,12 +39,19 @@
 						.fail(function (err, jqXHR, errorText) {
 							this.state = "error";
 							this.errors = [errorText];
+							this.form.reset();
 						}.bind(this))
 
 						.done(function (response) {
 							if (response.status === "success") {
 								this.state = "success";
 								this.message = response.message;
+								this.form.reset();
+
+								// Reset the state 5 seconds after succsefull submission
+								setTimeout(function () {
+									this.state = "pending-sumbmission";
+								}.bind(this), 5000)
 							} else {
 								this.state = "error";
 								this.errors = response.errors;
@@ -74,7 +86,7 @@
 							Loading ... Please wait
 						</div>
 
-						<div class="alert alert-succeess" v-show="this.state === 'success'">
+						<div class="alert alert-success" v-show="this.state === 'success'">
 							<p>{{ message }}</p>
 						</div>
 

@@ -1,13 +1,13 @@
 <?php
-return array(
+return [
 	/*
-	| Message recepients
+	| Message recipients
 	| 
 	| You can also pass an array like that:
 	|
 	|     array('johndoe@gmail.com', 'janedoe@gmail.com'),
 	|
-	| or like that, in order to specify recepients names along
+	| or like that, in order to specify recipients names along
 	| with the email address:
 	|
 	|   array(
@@ -16,14 +16,14 @@ return array(
 	|	),
 	|
 	*/
-	'recepients' => 'tocreatedev+prod@gmail.com',
+	'recipients' => 'somebody@example.com',
 
 	/*
 	| "From" email message header setup
 	| 
 	| Some hosts(godaddy) require sender email address to be 
 	| in the hosting's domain name and won't allow sending from
-	| different email addresses
+	| different email addresses.
 	|
 	*/
 	'from' => 'no-reply@' . ( isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : gethostname() ),
@@ -33,21 +33,22 @@ return array(
 	| Message subject
 	|
 	*/
-	'subject' => 'Contact Form',
+	'subject' => 'Contact Form Submission',
 
 	/*
 	| SMTP configuration
 	|
-	| By default mail is sent through the built-in `mail()` PHP function
-	| To enable SMTP, declare smtp_config array with 
-	| host, port, username, password and encryption type
+	| By default mail is sent through the PHP's built-in `mail()` 
+	| function. To enable SMTP, declare smtp_config array with 
+	| host, port, username, password and encryption type.
 	|
 	*/
-	# 'smtp_config' => array(
+	# 'smtp_config' => [
+	# 	"enable"     => true,
 	# 	"host"       => '',
 	# 	"port"       => '',
 	# 	"username"   => '',
 	# 	"password"   => '',
 	# 	"encryption" => '', // "ssl", "tls" or false for plain-text
-	# ),
-);
+	# ],
+];
