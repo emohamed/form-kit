@@ -16,5 +16,9 @@
     	"htmlburger/carbon-validator": "^1.2",
     	"emohamed/carbon-config": "^0.1",
     	"emohamed/carbon-email-notification": "^0.1"
+    },
+    
+    "config": {
+        "vendor-dir": "lib"
     }
 }
