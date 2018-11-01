@@ -76,22 +76,22 @@
 					<form action="src/send.php" method="POST"
 						@submit.prevent="send"
 					>
-						<div class="alert alert-danger" v-show="this.state === 'error'">
+						<div class="alert alert-danger" v-show="state === 'error'">
 							<ul>
 								<li v-for="error in errors">{{ error }}</li>
 							</ul>
 						</div>
 
-						<div class="alert alert-info" v-show="this.state === 'loading'">
+						<div class="alert alert-info" v-show="state === 'loading'">
 							Loading ... Please wait
 						</div>
 
-						<div class="alert alert-success" v-show="this.state === 'success'">
+						<div class="alert alert-success" v-show="state === 'success'">
 							<p>{{ message }}</p>
 						</div>
 
 						
-						<fieldset :disabled="this.state === 'loading'">
+						<fieldset :disabled="state === 'loading'">
 							<div class="form-group">
 								<label for="name">Name * </label>
 								<input type="text" required name="name" class="form-control" id="name">
